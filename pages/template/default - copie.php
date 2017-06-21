@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../bootstrap/favicon.ico">
 
-    <title><?php echo App\App::getTitle(); ?></title>
+    <title>Billet simple pour l'Alaska -  Jean Forteroche</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="index.php">Billet simple pour l'Alaska</a>
+          <a class="navbar-brand" href="#">Billet simple pour l'Alaska</a>
         </div>
       </div>
     </nav>

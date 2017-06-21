@@ -1,16 +1,30 @@
 <?php
 
+use \App\App;
+use \App\Table\Article;
+use \App\Table\Categorie;
 
-$datas = \App\Table\Article::getLast();
+$categorie = Categorie::find($_GET['id']);
+if($categorie === false){
+	App::notFound();
+}
+
+$article = Article::lastByCategorie($_GET['id']);
+
+$categorie = Categorie::all();
+
 ?>
 
 <div class="row">
 
 	<!-- Colonne principale de Gauche -->
 	<div class="col-sm-8">
+
+		<h1><?php echo $categorie->titre_categorie; ?></h1>
+
 		<?php
 		// On liste tous les articles
-		foreach ($datas as $post) { 
+		foreach ($article as $post) { 
 
 			//var_dump($post);
 
