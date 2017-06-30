@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../bootstrap/favicon.ico">
 
-    <title><?php echo App\App::getTitle(); ?></title>
+    <title><?php echo App::getInstance()->title; ?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">

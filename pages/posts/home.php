@@ -1,7 +1,7 @@
 <?php
 
 
-$datas = \App\Table\Article::getLast();
+$datas = App::getInstance()->getTable ('Post')->last();
 ?>
 
 <div class="row">
@@ -16,7 +16,7 @@ $datas = \App\Table\Article::getLast();
 
 			// Info direct de la BDD
 			echo "<h2>".$post->titre_article."</h2>";
-			echo "<em>ID : ".$post->id."<br/>Le : ".$post->date_article."</em>";
+			echo "<em>ID : ".$post->id_article."<br/>Le : ".$post->date_article."</em>";
 			echo "<p><b>".$post->titre_categorie."</b></p>";
 			echo "<p>".$post->contenu_article."</p>";
 
@@ -33,7 +33,7 @@ $datas = \App\Table\Article::getLast();
 	<div class="col-sm-4">
 		<h3>Catégories</h3>
 		<ul>
-			<?php foreach(\App\Table\Categorie::all() as $categorie): ?>
+			<?php foreach(App::getInstance()->getTable ('Category')->all() as $categorie): ?>
 				<li><a href="<?php echo $categorie->url; ?>"><?php echo $categorie->titre_categorie; ?></a></li>
 			<?php endforeach; ?>
 		</ul>

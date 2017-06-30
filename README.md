@@ -37,3 +37,14 @@ Export de la base de données MySQL
 Soutenance
 
 Pour cette soutenance, vous vous positionnerez comme un développeur présentant pendant 25 minutes son travail à son collègue plus senior dans l’agence web afin de vérifier que le projet peut être présenté tel quel à Jean Forteroche. Cette étape sera suivie de 5 minutes de questions/réponses.
+
+
+
+
+Structure
+App : Contient les class spécifique à notre application
+Bootstrap : Contient les fichier de bootstrap V3
+Config : Contient les fichiers de configuration
+Core : Contient les class générales à toutes application pour facilité la duplication
+Pages : Contient les pages du site
+Public : Fichier accessible sur le web

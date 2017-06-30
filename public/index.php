@@ -1,38 +1,34 @@
 <?php
+define('ROOT', dirname(__DIR__));
+require ROOT.'/app/App.php';
+App::load();
 
-require '../app/Autoloader.php';
-App\Autoloader::register();
 
 
-/* Quelle Type de page est appelé */
-if(isset($_GET['pagetype'])){
-	$pagetype = $_GET['pagetype'];
+if (isset($_GET['pagetype'])) {
+	$page = $_GET['pagetype'];
 }else{
-	/* Si aucun type préciser, direction la page d'accueil */
-	$pagetype = 'homepage';
+	$page ='home';
+}
+
+ob_start();
+
+if ($page === 'home') {
+	require ROOT.'/pages/posts/home.php';
+}elseif($page === 'posts.category'){
+	require ROOT.'/pages/posts/category.php';
+}elseif($page === 'posts.show'){
+	require ROOT.'/pages/posts/show.php';
 }
 
 
 
 
-ob_start(); // commence à stocker le contenu dans une variable
-
-/* Appel du template de la page sélectionné */
-if($pagetype==='homepage'){
-	require ('../pages/home.php');
-}elseif($pagetype==='article'){
-	require ('../pages/single.php');
-}elseif($pagetype==='auteur'){
-	require ('../pages/auteur.php');
-}elseif($pagetype==='categorie'){
-	require ('../pages/categorie.php');
-}elseif($pagetype==='categorie'){
-	require ('../pages/categorie.php');
-}elseif($pagetype==='404'){
-	require ('../pages/404.php');
-}
 
 
-$pageContent = ob_get_clean(); // arrête de stocker le contenu dans une variable
 
-require ('../pages/template/default.php');
+
+
+$pageContent = ob_get_clean();
+
+require ROOT.'/pages/template/default.php';
