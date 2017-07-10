@@ -22,7 +22,7 @@ $datas = App::getInstance()->getTable ('Post')->last();
 				<td><?= $post->id_article; ?></td>
 				<td><?= $post->titre_article; ?></td>
 				<td>
-					<a class="btn btn-primary" href="?posts.edit&id=<?= $post->id_article; ?>">Editer</a>
+					<a class="btn btn-primary" href="?pagetype=posts.edit&id=<?= $post->id_article; ?>">Editer</a>
 				</td>
 			</tr>
 		<?php endforeach; ?>

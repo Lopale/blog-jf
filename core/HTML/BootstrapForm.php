@@ -27,12 +27,16 @@ class BootstrapForm extends Form
 	* @return string
 	*
 	*/
-	public function input($name, $label, $options=[]){
+	public function input($name, $label, $options=[], $content=null){
 		$type= isset($options['type']) ? $options['type']:'text';
-		return $this->surround(
-			'<label>'.$label.'</label>'.
-			'<input type="'.$type.'" name="'.$name.'" placeholder="'.$this->getPlaceholder($label).'">'
-		);
+		$labelChamp = '<label>'.$label.'</label>';
+		if($type === "textarea"){
+			$inputChamp = '<textarea name="'.$name.'" class="form-control">'.$this->getPlaceholder($content).'</textarea>' ;
+		}else{
+			$inputChamp = '<input type="'.$type.'" name="'.$name.'" value="'.$this->getPlaceholder($content).'" class="form-control">';
+		}
+		
+		return $this->surround($labelChamp.$inputChamp);
 			
 
 	}
