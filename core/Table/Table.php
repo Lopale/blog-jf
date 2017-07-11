@@ -31,6 +31,17 @@ class Table
 		return $this->query("SELECT * FROM {$this->table} WHERE id = ?", [$id], true);
 	}
 
+	public function create($id, $fields){
+		$sql_parts=[]; //On initialise un tableau vide pour contenir les champs de la requête
+		$attributes = []; //On initialise un tableau vide pour contenir la valeur des champs de la requête
+		foreach ($fields as $key => $value) {
+			$sql_parts[] = "$key = ?";
+			$attributes[] = $value;
+		}
+		$sql_part = implode(', ', $sql_parts); // on génère le morceau de requête concernant les champs + valeurs
+		return $this->query("INSERT INTO {$this->table} SET $sql_part", $attributes, true);
+	}
+
 	public function update($id, $fields){
 		$sql_parts=[]; //On initialise un tableau vide pour contenir les champs de la requête
 		$attributes = []; //On initialise un tableau vide pour contenir la valeur des champs de la requête

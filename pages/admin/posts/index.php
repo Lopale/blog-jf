@@ -6,6 +6,9 @@ $datas = App::getInstance()->getTable ('Post')->last();
 
 <h1>ADMIN DU SITE</h1>
 
+<p>
+	<a href="?pagetype=posts.add" class="btn btn-success">Ajouter un Article</a>
+</p>
 
 <table class="table">
 
