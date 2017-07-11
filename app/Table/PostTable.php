@@ -59,4 +59,20 @@ class PostTable extends Table
 	}
 
 
+	/**
+	 * Récupère un article en liant la catégorie associé
+	 * @param $id int
+	 * @return \App\Entity\PostEntity
+	 */
+	
+	public function findWithCategory($id){
+		return $this->query("
+				SELECT articles.id, articles.titre_article, articles.categorie_id, articles.date_article, articles.contenu_article, categories.id, categories.titre_categorie
+				FROM articles
+				LEFT JOIN categories
+					ON categorie_id=categories.id
+				WHERE articles.id = ?",[$id], true);
+	}
+
+
 }

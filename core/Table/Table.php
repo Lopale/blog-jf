@@ -43,6 +43,14 @@ class Table
 		return $this->query("UPDATE {$this->table} SET $sql_part WHERE id = ?", $attributes, true);
 	}
 
+	public function extract($key, $value){ // créer un tableau pour les liste (par exemple le select des catégorie)
+		$records = $this -> all();
+		foreach ($records as $v) {
+			$return[$v->$key] = $v->$value;
+		}
+		return $return;
+	}
+
 	public function query ($statement, $attributes=null,$one=false){
 		if ($attributes) {
 			return $this->db->prepare(
