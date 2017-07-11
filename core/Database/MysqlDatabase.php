@@ -38,6 +38,15 @@ class MysqlDatabase extends Database {
 
 	public function query($statement, $class_name="null", $one=false){
 		$req = $this->getPDO()->query($statement); // La requête
+		if(
+			// $statement commence par UPADATE, INSERT, DELETE
+			strpos($statement, 'UPDATE') === 0 ||
+			strpos($statement, 'INSERT') === 0 ||
+			strpos($statement, 'DELETE') === 0 
+		){
+			return $req; // On a pas besoin de faire un FETCHALL
+		}
+
 		if ($class_name === null) {
 			$req->setFetchMode(PDO::FETCH_OBJ);
 		}else{
@@ -54,7 +63,16 @@ class MysqlDatabase extends Database {
 
 	public function prepare($statement, $attributes, $class_name="null", $one=false){
 		$req = $this->getPDO()->prepare($statement);
-		$req->execute($attributes);
+		$res = $req->execute($attributes);
+
+		if(
+			// $statement commence par UPADATE, INSERT, DELETE
+			strpos($statement, 'UPDATE') === 0 ||
+			strpos($statement, 'INSERT') === 0 ||
+			strpos($statement, 'DELETE') === 0 
+		){
+			return $res; // On a pas besoin de faire un FETCHALL
+		}
 
 		if ($class_name === null) {
 			$req->setFetchMode(PDO::FETCH_OBJ);
