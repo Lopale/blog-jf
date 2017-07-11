@@ -11,7 +11,7 @@
 				'categorie_id'=>$_POST['categorie_id']
 			]);
 		if($result){
-			header('Location:admin.php?pagetype.posts.edit&id='. App::getInstance()->getDb()->lastInsertId());
+			header('Location:admin.php?pagetype=posts.edit&id='. App::getInstance()->getDb()->lastInsertId());
 			echo "<div class='alert alert-success'>L\'article a bien été ajouté !</div>";
 		};
 	}
