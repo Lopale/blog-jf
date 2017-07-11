@@ -2,3 +2,7 @@ config/config.php
 /app/App.php
 app/Database.php
 core/Database
+/core/Database/Database.php
+/core/Database/MysqlDatabase.php
+core/Database/Database.php
+core/Database/MysqlDatabase.php
