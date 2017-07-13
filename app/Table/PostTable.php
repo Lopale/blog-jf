@@ -34,7 +34,7 @@ class PostTable extends Table
 	
 	public function lastByCategory($category_id){
 		return $this->query("
-				SELECT articles.id, articles.titre_article, articles.date_article, articles.contenu_article, categories.id, categories.titre_categorie
+				SELECT articles.id as id_article, articles.titre_article, articles.date_article, articles.contenu_article, categories.id, categories.titre_categorie
 				FROM articles
 				LEFT JOIN categories
 					ON categorie_id=categories.id
@@ -51,7 +51,7 @@ class PostTable extends Table
 	
 	public function find($id){
 		return $this->query("
-				SELECT articles.id, articles.titre_article, articles.date_article, articles.contenu_article, categories.id, categories.titre_categorie
+				SELECT articles.id as id_article, articles.titre_article, articles.date_article, articles.contenu_article, categories.id, categories.titre_categorie
 				FROM articles
 				LEFT JOIN categories
 					ON categorie_id=categories.id
@@ -67,7 +67,7 @@ class PostTable extends Table
 	
 	public function findWithCategory($id){
 		return $this->query("
-				SELECT articles.id, articles.titre_article, articles.categorie_id, articles.date_article, articles.contenu_article, categories.id, categories.titre_categorie
+				SELECT articles.id as id_article, articles.titre_article, articles.categorie_id, articles.date_article, articles.contenu_article, categories.id, categories.titre_categorie
 				FROM articles
 				LEFT JOIN categories
 					ON categorie_id=categories.id

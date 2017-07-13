@@ -1,19 +1,3 @@
-<?php
-
-$app=App::getInstance();
-
-$categorie = $app->getTable('Category')->find($_GET['id']);
-
-if($categorie === false){
-	$app->notFound();
-}
-
-$article =  $app->getTable('Post')->lastByCategory($_GET['id']);
-
-$categories = $app->getTable('Category')->all();
-
-?>
-
 <div class="row">
 
 	<!-- Colonne principale de Gauche -->
@@ -23,7 +7,7 @@ $categories = $app->getTable('Category')->all();
 
 		<?php
 		// On liste tous les articles
-		foreach ($article as $post) { 
+		foreach ($articles as $post) { 
 
 			//var_dump($post);
 

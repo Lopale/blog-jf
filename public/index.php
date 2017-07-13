@@ -11,26 +11,20 @@ if (isset($_GET['pagetype'])) {
 	$page ='home';
 }
 
-ob_start();
+
+
+
 
 if ($page === 'home') {
-	require ROOT.'/pages/posts/home.php';
+	$controller = new \App\Controller\PostsController();
+	$controller -> index();
 }elseif($page === 'posts.category'){
-	require ROOT.'/pages/posts/category.php';
+	$controller = new \App\Controller\PostsController();
+	$controller -> category();
 }elseif($page === 'posts.show'){
-	require ROOT.'/pages/posts/show.php';
+	$controller = new \App\Controller\PostsController();
+	$controller -> show();
 }elseif($page === 'login'){
-	require ROOT.'/pages/users/login.php';
+	$controller = new \App\Controller\UsersController();
+	$controller -> login();
 }
-
-
-
-
-
-
-
-
-
-$pageContent = ob_get_clean();
-
-require ROOT.'/pages/template/default.php';

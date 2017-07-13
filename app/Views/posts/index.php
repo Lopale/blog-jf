@@ -1,16 +1,10 @@
-<?php
-
-
-$datas = App::getInstance()->getTable ('Post')->last();
-?>
-
 <div class="row">
 
 	<!-- Colonne principale de Gauche -->
 	<div class="col-sm-8">
 		<?php
 		// On liste tous les articles
-		foreach ($datas as $post) { 
+		foreach ($posts as $post) { 
 
 			//var_dump($post);
 
@@ -33,7 +27,7 @@ $datas = App::getInstance()->getTable ('Post')->last();
 	<div class="col-sm-4">
 		<h3>Catégories</h3>
 		<ul>
-			<?php foreach(App::getInstance()->getTable ('Category')->all() as $categorie): ?>
+			<?php foreach($categories as $categorie): ?>
 				<li><a href="<?php echo $categorie->url; ?>"><?php echo $categorie->titre_categorie; ?></a></li>
 			<?php endforeach; ?>
 		</ul>
