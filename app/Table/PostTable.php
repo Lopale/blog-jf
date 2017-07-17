@@ -1,5 +1,8 @@
 <?php
 
+// Modèle relier à la BDD
+
+
 namespace App\Table;
 
 use Core\Table\Table;

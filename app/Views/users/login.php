@@ -1,20 +1,11 @@
-<?php
+<?php if($errors): ?>
 
-if(!empty($_POST)){
-	$auth = new \Core\Auth\DatabaseAuth(App::getInstance()->getDb());
-	if($auth -> login($_POST['username'], $_POST['password'])){
-		header('Location:admin.php');
-	}else{
-		?>
-		<div class="alert alert-danger">Identifiants incorrects</div>
-	<?php
-	}
-}
+	<div class="alert alert-danger">
+	Identifiant Incorrects !
+	</div>
 
-$form = new \Core\HTML\BootstrapForm($_POST);
+<?php endif; ?>
 
-
-?>
 <form method="post">
 	
 	<?= $form -> input('username','Pseudo'); ?>
