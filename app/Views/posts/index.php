@@ -9,17 +9,22 @@
 			//var_dump($post);
 
 			// Info direct de la BDD
+			echo "<div class='postArticle'>";
 			echo "<h2>".$post->titre_article."</h2>";
 			echo "<em>ID : ".$post->id_article."<br/>Le : ".$post->date_article."</em>";
 			echo "<p><b>".$post->titre_categorie."</b></p>";
-			echo "<p>".$post->contenu_article."</p>";
+			//echo "<p>".$post->contenu_article."</p>";
 
 			//Info générer par la class Article (App\Table)
 			echo "<p>".$post->extrait."</p>";
 			echo "<a href='".$post->url."'>Lire la suite</a>";
+			echo "</div>";
 
 		}
 ?>
+
+	<div class="paginator"></div>
+
 	</div>
 	<!-- Fin Colonne principale de Gauche -->
 
