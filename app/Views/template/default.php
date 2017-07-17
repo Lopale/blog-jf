@@ -30,6 +30,17 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="http://blog-jf.david-grillon.com/public/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://blog-jf.david-grillon.com/public/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://blog-jf.david-grillon.com/public/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="http://blog-jf.david-grillon.com/public/img/favicons/manifest.json">
+    <link rel="mask-icon" href="http://blog-jf.david-grillon.com/public/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="http://blog-jf.david-grillon.com/public/img/favicons/favicon.ico">
+    <meta name="msapplication-config" content="http://blog-jf.david-grillon.com/public/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Fin Favicon -->
+
     <!-- TiniMCE -->
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
     <script>tinymce.init({ selector:'textarea' });</script>
@@ -67,5 +78,6 @@
     <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="../../public/js/script.js"></script>
   </body>
 </html>

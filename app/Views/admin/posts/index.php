@@ -20,7 +20,7 @@
 				<td><?= $post->titre_article; ?></td>
 				<td>
 					<a class="btn btn-primary" href="?pagetype=admin.posts.edit&id=<?= $post->id_article; ?>">Editer</a>
-					<form action="?pagetype=admin.posts.delete" method="post" style="display: inline;">
+					<form action="?pagetype=admin.posts.delete" method="post" style="display: inline;" onsubmit="return confirm('Attention, vous êtes sur le point d\'effectuer une suppression, voulez-vous continuer ?')">
 						<input type="hidden" name="id" value="<?= $post->id_article; ?>">
 						<button type="submit" class="btn btn-danger">Supprimer</button>
 					</form>

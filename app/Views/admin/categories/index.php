@@ -20,9 +20,9 @@
 				<td><?= $category->titre_categorie; ?></td>
 				<td>
 					<a class="btn btn-primary" href="?pagetype=admin.categories.edit&id=<?= $category->id; ?>">Editer</a>
-					<form action="?pagetype=admin.categories.delete" method="post" style="display: inline;">
+					<form action="?pagetype=admin.categories.delete" method="post" style="display: inline;" onsubmit="return confirm('Attention, vous êtes sur le point d\'effectuer une suppression, voulez-vous continuer ?')">
 						<input type="hidden" name="id" value="<?= $category->id; ?>">
-						<button type="submit" class="btn btn-danger">Supprimer</button>
+						<button type="submit" class="btn btn-danger" >Supprimer</button>
 					</form>
 				</td>
 			</tr>
