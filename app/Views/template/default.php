@@ -42,6 +42,8 @@
     <!-- Fin Favicon -->
 
 
+
+
     <!-- TiniMCE -->
     <script src="../../public/js/tinymce/tinymce.min.js"></script>
     <script>tinymce.init({
@@ -89,8 +91,8 @@
 
       </div>
 
-      
-      
+
+
 
     </div><!-- /.container -->
 
@@ -103,6 +105,6 @@
     <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
-    <script src="../../public/js/script.js"></script>
+        <script src="../../public/js/script.js"></script>
   </body>
 </html>

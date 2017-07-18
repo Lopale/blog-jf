@@ -1,93 +1,54 @@
-function pagination(nbParPage,divSelect,divPager,model)
-{   
-    //Initialisation
-    var nbElem = $(divSelect).length;
-    var nbPage = Math.ceil(nbElem / nbParPage);
-    var pageLoad = 1;
-     
-    $(divSelect).each(function(index) {
-        if (index < nbParPage)
-            $(divSelect).eq(index).show();
-        else
-            $(divSelect).eq(index).hide();
-    });
-     
-    //Reset & vérification
-    function reset() {
-        if (nbPage < 2) $(divPager).hide();
-        if (pageLoad == nbPage) $(divPager + ' span.suivant').hide(); else $(divPager + ' span.suivant').show();
-        if (pageLoad == 1) $(divPager + ' span.precedent').hide(); else $(divPager + ' span.precedent').show();
-        $(divPager + ' ul li').removeClass('selected');
-        $(divPager + ' ul li').eq(pageLoad -1).addClass('selected');
-    }
-     
-    //Pagination génération
-    if (model != 1) {
-        $(divPager).html('<ul></ul>');
-        for(i = 1; i <= nbPage; i++) $(divPager + ' ul').append('<li>' + i + '</li>');
-     
-        //Changement click page
-        $(divPager + ' ul li').click(function() {
-            if ($(this).index() + 1 != pageLoad) {
-                pageLoad = $(this).index() + 1;
-                $(divSelect).hide();
-                 
-                $(divSelect).each(function(i) {
-                    if (i >= ((pageLoad * nbParPage) - nbParPage) && i < (pageLoad * nbParPage)) $(this).show();
-                });
-                 
-                reset();
-            }
-        });
-    }
-     
-    //Suivant Précédent
-    if (model == 1) {
-        $(divPager).prepend('<span class="precedent">Precedent</span>');
-        $(divPager).append('<span class="suivant">Suivant></span>');
-    } else if (model == 3) {
-        $(divPager + ' ul').before('<span class="precedent">Precedent</span>');
-        $(divPager + ' ul').after('<span class="suivant">Suivant</span>');
-    }
-     
-    //Evènement click sur suivant
-    $(divPager + ' span.suivant').click(function() {
-        if (pageLoad < nbPage) {
-            pageLoad += 1;
-            $(divSelect).hide();
-             
-            $(divSelect).each(function(i) {
-                if (i >= ((pageLoad * nbParPage) - nbParPage) && i < (pageLoad * nbParPage)) $(this).show();
-            });
-             
-            reset();
-        }
-    });
-     
-    //Evènement click sur précédent
-    $(divPager + ' span.precedent').click(function() {
-        if (pageLoad -1 >= 1) {
-            pageLoad -= 1;
-            $(divSelect).hide();
-             
-            $(divSelect).each(function(i) {
-                if (i >= ((pageLoad * nbParPage) - nbParPage) && i < (pageLoad * nbParPage)) $(this).show();
-            });
-             
-            reset();
-        }
-    });
-     
-    reset();
-}
-
-
-
 $( document ).ready(function() {
     console.log( "ready!" );
 
 
-    pagination(5,'.postArticle','.paginator',3);
+
+
+    var listElement = $('#pagination');
+	var perPage = 5; 
+	var numItems = listElement.children().size();
+	var numPages = Math.ceil(numItems/perPage);
+
+	$('.pagination').data("curr",0);
+
+	var curr = 0;
+	while(numPages > curr){
+	  $('<li><a href="#" class="page_link">'+(curr+1)+'</a></li>').appendTo('.pagination');
+	  curr++;
+	}
+
+	$('.pagination .page_link:first').addClass('active');
+
+	listElement.children().css('display', 'none');
+	listElement.children().slice(0, perPage).css('display', 'block');
+
+	$('.pagination li a').click(function(){
+	  var clickedPage = $(this).html().valueOf() - 1;
+	  goTo(clickedPage,perPage);
+	});
+
+	function previous(){
+	  var goToPage = parseInt($('.pagination').data("curr")) - 1;
+	  if($('.active').prev('.page_link').length==true){
+	    goTo(goToPage);
+	  }
+	}
+
+	function next(){
+	  goToPage = parseInt($('.pagination').data("curr")) + 1;
+	  if($('.active_page').next('.page_link').length==true){
+	    goTo(goToPage);
+	  }
+	}
+
+	function goTo(page){
+	  var startAt = page * perPage,
+	    endOn = startAt + perPage;
+	  
+	  listElement.children().css('display','none').slice(startAt, endOn).css('display','block');
+	  $('.pagination').attr("curr",page);
+	}
+
 
 
 });

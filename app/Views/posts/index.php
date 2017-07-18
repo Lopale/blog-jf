@@ -1,7 +1,7 @@
 <div class="row">
 
 	<!-- Colonne principale de Gauche -->
-	<div class="col-sm-8">
+	<div class="col-sm-8" id="pagination">
 		<?php
 		// On liste tous les articles
 		foreach ($posts as $post) { 
@@ -22,9 +22,11 @@
 
 		}
 ?>
+		<nav aria-label="Page navigation">
+			<ul class="pagination pagination-lg"></ul>
+		</nav>
 
-	<div class="paginator"></div>
-
+		
 	</div>
 	<!-- Fin Colonne principale de Gauche -->
 
