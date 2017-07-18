@@ -19,7 +19,7 @@ class PostEntity extends Entity{
 	}
 
 	public function getExtrait(){
-		$html = substr($this->contenu_article, 0, 150)."...";
+		$html = substr($this->contenu_article, 0, 350)."...";
 		return $html;
 	}
 }

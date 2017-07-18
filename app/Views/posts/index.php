@@ -1,5 +1,10 @@
 <div class="row">
 
+	<div class="page-header">
+	  <h1>Billet simple pour l'Alaska <small>Un roman online de Jean Forteroche</small></h1>
+	</div>
+
+
 	<!-- Colonne principale de Gauche -->
 	<div class="col-sm-8" id="pagination">
 		<?php
@@ -17,7 +22,7 @@
 
 			//Info générer par la class Article (App\Table)
 			echo "<p>".$post->extrait."</p>";
-			echo "<a href='".$post->url."'>Lire la suite</a>";
+			echo "<a class='btn btn-info' href='".$post->url."'>Lire la suite</a>";
 			echo "</div>";
 
 		}
@@ -33,9 +38,13 @@
 	<!-- Colonne Categorie de Droite -->
 	<div class="col-sm-4">
 		<h3>Catégories</h3>
-		<ul>
+		<ul class="list-group">
 			<?php foreach($categories as $categorie): ?>
-				<li><a href="<?php echo $categorie->url; ?>"><?php echo $categorie->titre_categorie; ?></a></li>
+				<li class="list-group-item">
+					<a href="<?php echo $categorie->url; ?>">
+						<?php echo $categorie->titre_categorie; ?>
+					</a>
+				</li>
 			<?php endforeach; ?>
 		</ul>
 	</div>

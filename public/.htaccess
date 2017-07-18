@@ -1,0 +1,2 @@
+RewriteEngine On 
+RewriteRule login http://blog-jf.david-grillon.com/?pagetype=users.login [R=301]

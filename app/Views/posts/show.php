@@ -7,4 +7,4 @@
 	echo "<p>".$article->contenu_article."</p>";
 
 ?>
-<a href="index.php">Retour à l'accueil</a>
+<a href="index.php" class='btn btn-info' >Retour à l'accueil</a>
