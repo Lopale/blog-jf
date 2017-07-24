@@ -5,6 +5,7 @@
 
 namespace App\Controller;
 use Core\Controller\Controller;
+use \App;
 
 /**
 * 
@@ -16,6 +17,7 @@ class PostsController extends AppController
 		parent::__construct(); // sert a appeler le constructeur parent
 		$this->loadModel('Post');
 		$this->loadModel('Category');
+		$this->loadModel('Comment');
 
 	}
 
@@ -46,7 +48,13 @@ class PostsController extends AppController
 
 	public function show(){
 		$article = $this->Post->findWithCategory($_GET['id']);
-		$this->render('posts.show', compact('article'));
+		$commentaire = $this->Comment->showComment($_GET['id']); // Il fait une bouccle sur TOUT les articles
+
+		$this->render('posts.show', compact('article','commentaire'));
+
+
+		//Appel du titre
 	}
+
 	
 }

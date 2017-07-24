@@ -143,7 +143,7 @@
             <!-- Here we use the Google Embed API to show Google Maps. -->
             <!-- In order for this to work in your project you will need to generate a unique API key.  -->
             <iframe id="map-container" frameborder="0" style="border:0"
-                src="https://www.google.com/maps/embed/v1/place?q=L'Opale&key=AIzaSyCPvVdMSkhLZdBRDijaE7FjoGOTGzzG3eM" >
+                src="https://www.google.com/maps/embed/v1/place?q=Alaska&key=AIzaSyCPvVdMSkhLZdBRDijaE7FjoGOTGzzG3eM" >
             </iframe>
         </div>
         <div class="social-networks">

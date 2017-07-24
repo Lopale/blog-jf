@@ -2,6 +2,8 @@
 
 <p>
 	<a href="?pagetype=admin.categories.add" class="btn btn-success">Ajouter une Categorie</a>
+
+	<a href="?pagetype=admin.posts.index" class="btn btn-success">Administrer les articles</a>
 </p>
 
 <table class="table">

@@ -77,5 +77,7 @@ class PostTable extends Table
 				WHERE articles.id = ?",[$id], true);
 	}
 
+	
+
 
 }

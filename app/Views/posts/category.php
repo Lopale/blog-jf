@@ -29,9 +29,13 @@
 	<!-- Colonne Categorie de Droite -->
 	<div class="col-sm-4">
 		<h3>Catégories</h3>
-		<ul>
+		<ul class="list-group">
 			<?php foreach($categories as $categorie): ?>
-				<li><a href="<?php echo $categorie->url; ?>"><?php echo $categorie->titre_categorie; ?></a></li>
+				<li class="list-group-item">
+					<a href="<?php echo $categorie->url; ?>">
+						<?php echo $categorie->titre_categorie; ?>
+					</a>
+				</li>
 			<?php endforeach; ?>
 		</ul>
 	</div>
