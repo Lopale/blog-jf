@@ -26,6 +26,9 @@ class CommentsController extends AppController
 
 	public function add(){		
 		if(!empty($_POST)){
+
+			$niveau_commentaire = $_POST['niveau_commentaire'] + 1;
+
 			$resultCommentator = $this->Commentator->create($_GET['id'],[
 					'pseudo_commentateur'=>$_POST['pseudo_commentateur'],
 					'email_commentateur'=>$_POST['email_commentateur']
@@ -35,6 +38,7 @@ class CommentsController extends AppController
 					'contenu_commentaire'=>$_POST['contenu_commentaire'],
 					'id_commentateur'=>'1', // A remplacer,
 					'id_article'=>$_POST['id_article'],
+					'niveau_commentaire' =>$niveau_commentaire,
 					'id_commentaire_parent'=>$_POST['parent_id']
 
 				]);

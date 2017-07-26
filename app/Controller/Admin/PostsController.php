@@ -69,7 +69,11 @@ class PostsController extends AppController
 		// On envois les information via la table de création de formulaire
 		$form = new BootstrapForm($post);
 
-		$this->render('admin.posts.edit', compact('categories','form'));
+		// On affiche les commentaires
+		$this->loadModel('Comment');
+		$commentaire = $this->Comment->showComment($_GET['id']); 
+
+		$this->render('admin.posts.edit', compact('categories','form','commentaire'));
 	}
 
 	public function delete(){

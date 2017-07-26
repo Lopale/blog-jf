@@ -4,6 +4,8 @@
 	<a href="?pagetype=admin.posts.add" class="btn btn-success">Ajouter un Article</a>
 
 	<a href="?pagetype=admin.categories.index" class="btn btn-success">Administrer les categories</a>
+
+	<a href="?pagetype=admin.comments.index" class="btn btn-success">Administrer les commentaires Signalés</a>
 </p>
 
 <table class="table">
