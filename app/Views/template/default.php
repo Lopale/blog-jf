@@ -76,7 +76,7 @@
 
   <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-top">
       <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand" href="index.php"> <span class="glyphicon glyphicon-send" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp; Billet simple pour l'Alaska</a>
