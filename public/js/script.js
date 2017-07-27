@@ -1,16 +1,50 @@
 function reponseComment(){
 
+		// $( ".btn_reponse" ).click(function(event) {
+		//   event.preventDefault();
+		// 	var id_commentaire_parent = $(this).attr('rel').split('_');
+
+		// 	$("#formRep #parent_id").val(id_commentaire_parent[1]);
+		// 	$("#formRep input[name='comment_parent']").val(id_commentaire_parent[2]);
+		// 	$("#formRep input[name='niveau_commentaire']").val(id_commentaire_parent[3]);
+		// 	$('html, body').animate({
+	 //            scrollTop: $("#formRep ").offset().top
+	 //        }, 500);
+		// });
+
+
 		$( ".btn_reponse" ).click(function(event) {
-		  event.preventDefault();
+			event.preventDefault();
+
 			var id_commentaire_parent = $(this).attr('rel').split('_');
 
-			$("#formRep #parent_id").val(id_commentaire_parent[1]);
-			$("#formRep input[name='comment_parent']").val(id_commentaire_parent[2]);
-			$("#formRep input[name='niveau_commentaire']").val(id_commentaire_parent[3]);
-			$('html, body').animate({
-	            scrollTop: $("#formRep ").offset().top
-	        }, 500);
+			var formRep = '.reponseCommentaire_'+id_commentaire_parent[1];
+			var btnFermer = '.btn_fermer_'+id_commentaire_parent[1];
+			var btnRep = '.btn_reponse_'+id_commentaire_parent[1];
+
+
+			$(btnRep).fadeOut(0);
+			$(btnFermer).css({'display': 'inline-block'});
+			$(formRep).slideDown(500);
+			
 		});
+
+		$( ".btn_fermer" ).click(function(event) {
+			event.preventDefault();
+
+			var id_commentaire_parent = $(this).attr('rel').split('_');
+
+			var formRep = '.reponseCommentaire_'+id_commentaire_parent[1];
+			var btnFermer = '.btn_fermer_'+id_commentaire_parent[1];
+			var btnRep = '.btn_reponse_'+id_commentaire_parent[1];
+
+
+			$(btnRep).css({'display': 'inline-block'});
+			$(btnFermer).fadeOut(0);
+			$(formRep).slideUp(500);
+			
+		});
+
 
 	
 }
