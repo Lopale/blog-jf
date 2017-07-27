@@ -5,6 +5,7 @@
 
 namespace App\Controller;
 use Core\Controller\Controller;
+use Core\Database\Database;
 use \App;
 
 /**
@@ -19,7 +20,6 @@ class CommentsController extends AppController
 		$this->loadModel('Category');
 		$this->loadModel('Comment');
 		$this->loadModel('Commentator');
-
 	}
 
 
@@ -29,19 +29,33 @@ class CommentsController extends AppController
 
 			$niveau_commentaire = $_POST['niveau_commentaire'] + 1;
 
-			$resultCommentator = $this->Commentator->create($_GET['id'],[
+	        
+	         $commentateur = $this->Commentator->query('SELECT * FROM commentateur WHERE pseudo_commentateur ="'.$_POST['pseudo_commentateur'].'" AND email_commentateur="'.$_POST['email_commentateur'].'" ', null , true);
+			 if($commentateur){
+			  	$id_commentateur= $commentateur->id;		
+			 }else{
+			 	$last_id_commentateur = $this->Commentator->query('SELECT id FROM commentateur ORDER BY id DESC', null , true);
+			  	$id_commentateur= $last_id_commentateur->id + 1;
+
+			 	$resultCommentator = $this->Commentator->create($_GET['id'],[
 					'pseudo_commentateur'=>$_POST['pseudo_commentateur'],
 					'email_commentateur'=>$_POST['email_commentateur']
 
 				]);
-			$result = $this->Comment->create($_GET['id'],[
+			 }
+
+			 	var_dump($commentateur, $id_commentateur, $last_id_commentateur);
+			 $result = $this->Comment->create($_GET['id'],[
 					'contenu_commentaire'=>$_POST['contenu_commentaire'],
-					'id_commentateur'=>'1', // A remplacer,
+					'id_commentateur'=>$id_commentateur,
 					'id_article'=>$_POST['id_article'],
 					'niveau_commentaire' =>$niveau_commentaire,
 					'id_commentaire_parent'=>$_POST['parent_id']
 
 				]);
+
+			
+			
 			if($result){
 				$article = $this->Post->findWithCategory($_POST['id_article']);
 				$commentaire = $this->Comment->showComment($_POST['id_article']); 
