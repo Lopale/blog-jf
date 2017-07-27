@@ -44,7 +44,8 @@ class CommentsController extends AppController
 				]);
 			 }
 
-			 	var_dump($commentateur, $id_commentateur, $last_id_commentateur);
+			 //var_dump($commentateur, $id_commentateur, $last_id_commentateur);
+			 
 			 $result = $this->Comment->create($_GET['id'],[
 					'contenu_commentaire'=>$_POST['contenu_commentaire'],
 					'id_commentateur'=>$id_commentateur,

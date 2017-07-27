@@ -9,3 +9,40 @@ body .navbar-inverse {
 #myFooter{
 	margin-top: 25px;
 }
+
+
+
+[required] {
+   border: 2px dotted orange;
+}
+
+:required {
+   border: 2px dotted orange;
+}
+
+[type="text"]::-webkit-validation-bubble { 
+	opacity: 0.95;
+}
+[type="text"]::-webkit-validation-bubble-arrow-clipper {
+	text-align:center;
+}
+[type="text"]::-webkit-validation-bubble-arrow {
+	background-color: #f4f4f4;
+	border: 1px solid #D8000C;
+	border-width: 1px 0 0 1px;
+	box-shadow: none;
+}
+[type="text"]::-webkit-validation-bubble-icon {
+	display:none;
+}
+[type="text"]::-webkit-validation-bubble-message {
+	background: #f4f4f4;
+	border: 1px solid #D8000C;
+	color: #D8000C;
+	font-size: 100%;
+	box-shadow: 0 1px 5px #bbb;
+	text-shadow: 0 1px 0 #fff;
+}
+[type="text"]::-webkit-validation-bubble-message::before {
+	content: "Saisissez : ";
+}

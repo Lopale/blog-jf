@@ -19,14 +19,14 @@
             <div class="row">
                 <div class="col-xs-6">
                     <div class="form-group">
-                        <label>Pseudo</label>
-                        <input type="text" class="form-control" name="pseudo_commentateur">
+                        <label>Pseudo *</label>
+                        <input type="text" class="form-control" name="pseudo_commentateur" required="required">
                     </div>
                 </div>
                 <div class="col-xs-6">
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" class="form-control" name="email_commentateur">
+                        <label>Email *</label>
+                        <input type="email" class="form-control" name="email_commentateur" required="required">
                     </div>
                 </div>
                 <div class="col-xs-12">
@@ -37,8 +37,8 @@
                 </div>
                 <div class="col-xs-12">
                     <div class="form-group">
-                        <label>Commentaire</label>
-                        <textarea name="contenu_commentaire" class="form-control"></textarea>
+                        <label>Commentaire *</label>
+                        <textarea name="contenu_commentaire" class="form-control" required="required"></textarea>
                     </div>
                     <button class="btn btn-primary">Valider</button>
 
@@ -48,6 +48,7 @@
                 <input type="hidden" name="id_article" value="<?= $article->id_article; ?>" id="id_article">
             </div>
         </form>
+        <p>* Champs obligatoires</p>
     </div>
 
 	
