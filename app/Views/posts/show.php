@@ -38,6 +38,7 @@
 
                 </div>
                 <input type="hidden" name="parent_id" value="0">
+                <input type="hidden" name="niveau_commentaire" value="0">
                 <input type="hidden" name="id_article" value="<?= $article->id_article; ?>" id="id_article">
             </div>
         </form>

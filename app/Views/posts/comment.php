@@ -16,7 +16,11 @@
 
                      echo '<a href="#" class="btn btn-primary btn_fermer btn_fermer_'.$comment->id_commentaire.'" rel="comment_'. $comment->id_commentaire.'_'.$comment->pseudo_commentateur.'_'.$comment->niveau_commentaire.'" >Fermer</a>';
 
-                    echo '<a href="#formRep" class="btn btn-primary btn_reponse btn_reponse_'.$comment->id_commentaire.'" rel="comment_'. $comment->id_commentaire.'_'.$comment->pseudo_commentateur.'_'.$comment->niveau_commentaire.'" >Répondre</a>';
+                    if($comment->niveau_commentaire <=2){
+                        echo '<a href="#formRep" class="btn btn-primary btn_reponse btn_reponse_'.$comment->id_commentaire.'" rel="comment_'. $comment->id_commentaire.'_'.$comment->pseudo_commentateur.'_'.$comment->niveau_commentaire.'" >Répondre</a>';
+                    }else{
+                        echo "<p>Vous ne pouvez répondre à ce commentaire</p>";
+                    }
                     ?>
                         <form action="?pagetype=comments.report" method="post" style="display: inline;" onsubmit="return confirm('Attention, vous êtes sur le point d\'effectuer une demande de modération de ce commentaire, voulez-vous continuer ?')">
                             <input type="hidden" name="id_comment" value="<?= $comment->id_commentaire; ?>">
@@ -28,7 +32,7 @@
             } ?>
         </div>
     </div>
-<div class="well reponseCommentaire reponseCommentaire_<?= $comment->id_commentaire; ?>" rel="comment_'. $comment->id_commentaire.'_'.$comment->pseudo_commentateur.'_'.$comment->niveau_commentaire.'">
+<div class="well reponseCommentaire reponseCommentaire_<?= $comment->id_commentaire; ?>">
     <h4>Répondre à ce commentaire</h4>
     <form method="post"  action="?pagetype=comments.add">
         <div class="row">
@@ -53,7 +57,7 @@
 
             </div>
             <input type="hidden" name="parent_id" value="<?= $comment->id_commentaire; ?>">
-            <input type="hidden" name="niveau_commentaire" value="0">
+            <input type="hidden" name="niveau_commentaire" value="<?= $comment->niveau_commentaire; ?>">
             <input type="hidden" name="id_article" value="<?= $article->id_article; ?>">
         </div>
     </form>

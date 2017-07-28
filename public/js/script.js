@@ -21,8 +21,6 @@ function reponseComment(){
 			var formRep = '.reponseCommentaire_'+id_commentaire_parent[1];
 			var btnFermer = '.btn_fermer_'+id_commentaire_parent[1];
 			var btnRep = '.btn_reponse_'+id_commentaire_parent[1];
-
-
 			$(btnRep).fadeOut(0);
 			$(btnFermer).css({'display': 'inline-block'});
 			$(formRep).slideDown(500);
