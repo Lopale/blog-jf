@@ -31,20 +31,13 @@
                 </div>
                 <div class="col-xs-12">
                     <div class="form-group">
-                        <label>En réponse au commentaire</label>
-                        <input type="text" class="form-control" name="comment_parent">
-                    </div>
-                </div>
-                <div class="col-xs-12">
-                    <div class="form-group">
                         <label>Commentaire *</label>
-                        <textarea name="contenu_commentaire" class="form-control" required="required"></textarea>
+                        <textarea name="contenu_commentaire" class="form-control" ></textarea>
                     </div>
                     <button class="btn btn-primary">Valider</button>
 
                 </div>
-                <input type="hidden" name="parent_id" value="0" id="parent_id">
-                <input type="hidden" name="niveau_commentaire" value="0">
+                <input type="hidden" name="parent_id" value="0">
                 <input type="hidden" name="id_article" value="<?= $article->id_article; ?>" id="id_article">
             </div>
         </form>
@@ -57,11 +50,8 @@
 
 
 
-
 <?php
-
-$comments_by_id=[];
-
+    $comments_by_id=[];
 ?>
 
 <?php foreach($commentaire as $comment):
@@ -81,3 +71,10 @@ $comments_by_id=[];
 <?php foreach($commentaire as $comment):?>
     <?php require('comment.php'); ?>
 <?php  endforeach; ?>
+
+
+<?php 
+    if(isset($message['succes'])){
+        echo '<div class="alert alert-success fixed-top" role="alert">'.$message['succes'].'<button class="btn btn-primary fermer_alert">Fermer</button></div>';
+    }
+?>

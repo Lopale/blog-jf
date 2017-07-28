@@ -46,6 +46,12 @@ function reponseComment(){
 		});
 
 
+		$( ".fermer_alert" ).click(function(event) {
+			event.preventDefault();
+			$('.fixed-top.alert.alert-success').fadeOut(500);
+			
+		});
+
 	
 }
 

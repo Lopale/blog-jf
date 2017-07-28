@@ -36,5 +36,8 @@ class CommentTable extends Table
 			WHERE commentaire.demande_moderation_comment = 1",[$id]);
 	}
 
+
+
+	
 	
 }

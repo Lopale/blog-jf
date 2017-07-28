@@ -50,7 +50,6 @@ class CommentsController extends AppController
 					'contenu_commentaire'=>$_POST['contenu_commentaire'],
 					'id_commentateur'=>$id_commentateur,
 					'id_article'=>$_POST['id_article'],
-					'niveau_commentaire' =>$niveau_commentaire,
 					'id_commentaire_parent'=>$_POST['parent_id']
 
 				]);
@@ -60,8 +59,9 @@ class CommentsController extends AppController
 			if($result){
 				$article = $this->Post->findWithCategory($_POST['id_article']);
 				$commentaire = $this->Comment->showComment($_POST['id_article']); 
+				$message = ['succes'=>'Votre commentaires a bien été ajouté !'];
 
-				$this->render('posts.show', compact('article','commentaire'));
+				$this->render('posts.show', compact('article','commentaire', 'message'));
 			};
 		}		
 
