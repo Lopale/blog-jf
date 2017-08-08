@@ -52,15 +52,15 @@
 
 
 <?php
+
+    // A délpacer dans le controlleur
     $comments_by_id=[];
-?>
 
-<?php foreach($commentaire as $comment):
-    $comments_by_id[$comment->id_commentaire]=$comment;
-     //require('comment.php'); 
-     endforeach; ?>
+     foreach($commentaire as $comment):
+        $comments_by_id[$comment->id_commentaire]=$comment;
+     endforeach;
 
-<?php foreach($commentaire as $k=>$comment):
+    foreach($commentaire as $k=>$comment):
         if($comment->id_commentaire_parent !="0"){
             $comments_by_id[$comment->id_commentaire_parent]->children[]=$comment;
             unset($commentaire[$k]);

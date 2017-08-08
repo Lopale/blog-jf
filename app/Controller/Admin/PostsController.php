@@ -17,11 +17,13 @@ class PostsController extends AppController
 		$this->loadModel('Post');
 	}
 
+	/* Affichage des articles sur la page index de l'admin */
 	public function index(){
 		$posts = $this->Post->last();
 		$this->render('admin.posts.index',compact('posts'));
 	}
 
+	/* Ajouter un article */
 	public function add(){		
 		if(!empty($_POST)){
 			$result = $this->Post->create($_GET['id'],[
@@ -46,6 +48,7 @@ class PostsController extends AppController
 
 	}
 
+	/* Editer un article */
 	public function edit(){
 		// Si des données sont passées en paramètres on les sauvegardes
 		if(!empty($_POST)){
@@ -76,6 +79,7 @@ class PostsController extends AppController
 		$this->render('admin.posts.edit', compact('categories','form','commentaire'));
 	}
 
+	/* Supprimer un article */
 	public function delete(){
 		
 		// Si des données sont passées en paramètres on les sauvegardes

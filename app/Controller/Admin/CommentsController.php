@@ -18,17 +18,14 @@ class CommentsController extends AppController
 		$this->loadModel('Comment');
 	}
 
+	/* Affichage des commentaire*/
 	public function index(){
 		$comments = $this->Comment->reportComment();
 		$this->render('admin.comments.index',compact('comments'));
 	}
 
 
-
-
-
-
-
+	/* demande de modération de commentaires */
 	public function moderate(){
 		if(!empty($_POST)){
 			$result = $this->Comment->update($_POST['id_comment'],[

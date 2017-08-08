@@ -3,7 +3,7 @@
 namespace Core;
 
 /**
-* 
+* Charger le fichier de configuration
 */
 class Config {
 

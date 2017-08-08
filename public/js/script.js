@@ -1,18 +1,5 @@
 function reponseComment(){
 
-		// $( ".btn_reponse" ).click(function(event) {
-		//   event.preventDefault();
-		// 	var id_commentaire_parent = $(this).attr('rel').split('_');
-
-		// 	$("#formRep #parent_id").val(id_commentaire_parent[1]);
-		// 	$("#formRep input[name='comment_parent']").val(id_commentaire_parent[2]);
-		// 	$("#formRep input[name='niveau_commentaire']").val(id_commentaire_parent[3]);
-		// 	$('html, body').animate({
-	 //            scrollTop: $("#formRep ").offset().top
-	 //        }, 500);
-		// });
-
-
 		$( ".btn_reponse" ).click(function(event) {
 			event.preventDefault();
 

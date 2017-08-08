@@ -23,7 +23,8 @@ class Controller {
 
 	protected static function notFound(){
 		header("HTTP/1.0 404 Not Found");
-		header('Location:index.php?pagetype=404');
+		//header('Location:index.php?pagetype=error.404');
+		die('404');
 	}
 
 

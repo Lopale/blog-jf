@@ -21,7 +21,7 @@ class PostsController extends AppController
 
 	}
 
-
+	/* lister les article sur la page d'accueil */
 	public function index(){
 		$posts = $this->Post->last();
 		$categories = $this->Category->all();
@@ -29,7 +29,7 @@ class PostsController extends AppController
 		$this->render('posts.index', compact('posts','categories'));
 	}
 
-	
+	/* Récuper les article et catégories */
 	public function category(){
 
 		$categorie = $this->Category->find($_GET['id']);
@@ -45,10 +45,22 @@ class PostsController extends AppController
 		$this->render('posts.category', compact('articles','categories', 'categorie'));
 	}
 	
-
+	/* Afficher un article + ses commentaires */ 
 	public function show(){
 		$article = $this->Post->findWithCategory($_GET['id']);
 		$commentaire = $this->Comment->showComment($_GET['id']); 
+
+		// foreach ($commentaire as $comment) {
+		// 	if($comment->modere_commentaire==1){
+		// 		$comment->contenu_commentaire = "<b><i>Ce commentaire a été modéré par l'administrateur car il ne respecte pas la charte !</i></b>";
+		// 	}
+		// 	if($comment->demande_moderation_comment==1){
+		// 		$comment->contenu_commentaire = "<i>Ce commentaire est en attente de modération !</i>";
+		// 	}
+  //           var_dump($comment->contenu_commentaire);
+  //       }
+
+		
 
 		$this->render('posts.show', compact('article','commentaire'));
 
