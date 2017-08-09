@@ -24,9 +24,14 @@
 				<td><?= $comment->pseudo_commentateur; ?></td>
 				<td><?= $comment->contenu_commentaire; ?></td>
 				<td>					
-					<form action="?pagetype=admin.posts.moderate" method="post" style="display: inline;" onsubmit="return confirm('Attention, vous êtes sur le point d\'effectuer une modération, voulez-vous continuer ?')">
+					<form action="?pagetype=admin.comments.moderate" method="post" style="display: inline;" onsubmit="return confirm('Attention, vous êtes sur le point d\'effectuer une modération, voulez-vous continuer ?')">
 						<input type="hidden" name="id" value="<?= $comment->id_commentaire; ?>">
 						<button type="submit" class="btn btn-danger">Supprimer</button>
+					</form>
+
+					<form action="?pagetype=admin.comments.validate" method="post" style="display: inline;" >
+						<input type="hidden" name="id" value="<?= $comment->id_commentaire; ?>">
+						<button type="submit" class="btn btn-success">Autoriser</button>
 					</form>
 					<a href="index.php?pagetype=posts.show&id=<?= $comment->id_article; ?>#comment_<?= $comment->id_commentaire; ?>" class="btn btn-info" target="_blank">Voir le contexte</a>
 				</td>

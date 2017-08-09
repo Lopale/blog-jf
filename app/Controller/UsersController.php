@@ -11,7 +11,6 @@ use \App;
 */
 class UsersController extends AppController{
 	
-	/* Interface de connextion */
 	public function login(){
 
 		$errors = false;

@@ -11,8 +11,6 @@ class CommentTable extends Table
 {
 	protected $table = "commentaire";
 
-
-	/* Afficher les commentaires */
 	public function showComment($id){
 		return $this->query("
 			SELECT commentaire.id as id_commentaire, commentaire.contenu_commentaire,commentaire.children, commentaire.id_commentateur, commentaire.modere_commentaire, commentaire.date_commentaire, commentaire.id_article, commentaire.id_commentaire_parent,commentaire.niveau_commentaire,commentaire.demande_moderation_comment, commentateur.pseudo_commentateur,commentateur.date_inscription
@@ -27,7 +25,7 @@ class CommentTable extends Table
 	}
 
 
-	/* Signaler un commentaire */
+
 	public function reportComment(){
 		return $this->query("
 				SELECT commentaire.id as id_commentaire, commentaire.contenu_commentaire, commentaire.id_commentateur, commentaire.modere_commentaire, commentaire.date_commentaire, commentaire.id_article, commentaire.id_commentaire_parent,commentaire.niveau_commentaire,commentaire.demande_moderation_comment, commentateur.pseudo_commentateur,commentateur.date_inscription

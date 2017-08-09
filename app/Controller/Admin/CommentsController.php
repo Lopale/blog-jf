@@ -18,18 +18,33 @@ class CommentsController extends AppController
 		$this->loadModel('Comment');
 	}
 
-	/* Affichage des commentaire*/
 	public function index(){
 		$comments = $this->Comment->reportComment();
 		$this->render('admin.comments.index',compact('comments'));
 	}
 
 
-	/* demande de modération de commentaires */
+
+
+
+
+
 	public function moderate(){
 		if(!empty($_POST)){
-			$result = $this->Comment->update($_POST['id_comment'],[
-					'modere_commentaire'=>'1'
+			$result = $this->Comment->update($_POST['id'],[
+					'modere_commentaire'=>'1',
+					'demande_moderation_comment'=>'0'
+				]);
+			if($result){
+				return $this->index();
+			};
+		}
+	}
+
+	public function validate(){
+		if(!empty($_POST)){
+			$result = $this->Comment->update($_POST['id'],[
+					'demande_moderation_comment'=>'0'
 				]);
 			if($result){
 				return $this->index();

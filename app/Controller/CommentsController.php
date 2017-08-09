@@ -23,7 +23,7 @@ class CommentsController extends AppController
 	}
 
 
-	/* Ajouter un commentaire */
+
 	public function add(){		
 		if(!empty($_POST)){
 
@@ -68,7 +68,7 @@ class CommentsController extends AppController
 
 	}
 
-	/* Signaler un commentaire */
+
 	public function report(){
 
 
